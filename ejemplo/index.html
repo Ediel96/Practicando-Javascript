@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
-        <input name="boton1" id="boton1" type="button" value="Boton 1" onclick="desactivar(this.name,'boton1,boton2,boton3')" />
-        <input name="boton2" id="boton2" type="button" value="Boton 2" onclick="desactivar(this.name,'boton1,boton2,boton3')"/>
-        <input name="boton3" id="boton3" type="button" value="Boton 3" onclick="desactivar(this.name,'boton1,boton2,boton3')" />
-         
-        <script type="text/javascript">
-        //Esta funcion servira, pone en nombreBotones los nombres de los botones separados por coma como se ve en el ejemplo de arriba
-        function desactivar(name,nombreBotones){
-            var partesBotones = nombreBotones.split(",");
-            for(i=0;i<partesBotones.length;i++){
-                var boton = document.getElementById(partesBotones[i]);
-                if(boton.name == name)boton.disabled = true;
-                else boton.disabled = false;
+<html>
+    <head>
+        <title>Javascript - Input Text Allow Only Numbers</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <input type="text" onkeypress="isInputNumber(event)">
+        
+        <script>
+            
+            function isInputNumber(evt){
+                
+                var ch = String.fromCharCode(evt.which);
+                
+                if(!(/[0-9]/.test(ch))){
+                    evt.preventDefault();
+                }
+                
             }
-        }
+            
         </script>
-</body>
+       
+    </body>
 </html>
