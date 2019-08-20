@@ -9,6 +9,21 @@
         
         <input type="text" onkeypress="isInputNumber(event)">
         
+        <br>
+        <br>
+
+        <input name="boton1" id="boton1" type="button" value="Boton 1" onclick="desactivar(this.name,'boton1,boton2,boton3')" />
+        <input name="boton2" id="boton2" type="button" value="Boton 2" onclick="desactivar(this.name,'boton1,boton2,boton3')"/>
+        <input name="boton3" id="boton3" type="button" value="Boton 3" onclick="desactivar(this.name,'boton1,boton2,boton3')" />
+
+        <br>
+        <br>
+
+        <button onclick="desacticarText('text1', 'text2')">desactivar</button>
+        <input type="text" id="text1"/>
+        <input type="text" id="text2"/>
+
+        
         <script>
             
             function isInputNumber(evt){
@@ -17,6 +32,45 @@
                     evt.preventDefault();
                 }
             }
+
+            function desactivar(name,nombreBotones){
+            var partesBotones = nombreBotones.split(",");
+            for(i=0;i<partesBotones.length;i++){
+                var boton = document.getElementById(partesBotones[i]);
+                if(boton.name == name)boton.disabled = true;
+                else boton.disabled = false;
+            }
+        }
+        /*
+        function desacticarText(textOne ,textTwo){
+            var oneText = document.getElementById(textOne);
+            var twoText = document.getElementById(textTwo);
+
+            console.log('clik');
+
+            if(oneText.disabled  || twoText.disabled  ){
+                console.log(this.oneText , this.twoText);
+                oneText = oneText.disabled == false;
+                twoText= twoText.disabled == false;
+            }else{
+                console.log(2)
+                oneText.disabled = true;
+                twoText.disabled = true;
+            }
+            
+        }
+        */
+
+        function desacticarText(textOne ,textTwo){
+            var oneText = document.getElementById(textOne);
+            var twoText = document.getElementById(textTwo);
+
+            console.log('clik');
+
+            oneText.disabled = !oneText.disabled;
+            twoText.disabled = !twoText.disabled;
+            
+        }
             
         </script>
        
