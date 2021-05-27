@@ -1,12 +1,12 @@
 console.log("Hello world!");
 
 function mitades(numeros) {
-    var resultado = [];
-    var numero = 42;
+    let resultado = [];
+    // let numero = 42;
 
-    for (var i = 0; i <numeros.length; i++) {
-        var numero = numeros[i];
-        var mitad = numero / 2;
+    for (let i = 0; i <numeros.length; i++) {
+        let numero = numeros[i];
+        let mitad = numero / 2;
         resultado.push(mitad);
     }
 
